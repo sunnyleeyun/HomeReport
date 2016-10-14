@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coreData = CoreDataStack()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //deleteRecords()
+        checkDataStore()
          return true
     }
 
@@ -167,6 +170,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     
     
+    }
+    
+    func deleteRecords(){
+        let moc = coreData.persistentContainer.viewContext
+        let homeRequest: NSFetchRequest<Home> = Home.fetchRequest()
+        let saleHistoryRequest: NSFetchRequest<SaleHistory> = SaleHistory.fetchRequest()
+        
+        var deleteRequest: NSBatchDeleteRequest
+        var deleteResults: NSPersistentStoreResult
+        
+        do{
+            deleteRequest = NSBatchDeleteRequest(fetchRequest: homeRequest as! NSFetchRequest<NSFetchRequestResult>)
+            deleteResults = try moc.execute(deleteRequest)
+            
+            deleteRequest = NSBatchDeleteRequest(fetchRequest: saleHistoryRequest as! NSFetchRequest<NSFetchRequestResult>)
+            deleteResults = try moc.execute(deleteRequest)
+        }
+        catch{
+            fatalError("Failed removing existing record")
+        }
     }
     
 
