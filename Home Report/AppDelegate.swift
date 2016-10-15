@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coreData = CoreDataStack()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        //deleteRecords()
+
         checkDataStore()
+        
          return true
     }
 
@@ -46,157 +46,130 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coreData.saveContext()
     }
 
-    func checkDataStore(){
+    func checkDataStore() {
         let request: NSFetchRequest<Home> = Home.fetchRequest()
         
         let moc = coreData.persistentContainer.viewContext
-        
-        do{
+        do {
             let homeCount = try moc.count(for: request)
             
             if homeCount == 0 {
                 uploadSampleData()
             }
         }
-        catch{
+        catch {
             fatalError("Error in counting home record")
         }
     }
     
-    func uploadSampleData(){
+    func uploadSampleData() {
         let moc = coreData.persistentContainer.viewContext
         
         let url = Bundle.main.url(forResource: "homes", withExtension: "json")
         let data = try? Data(contentsOf: url!)
-    
-        do{
+        
+        do {
             let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
             let jsonArray = jsonResult.value(forKey: "home") as! NSArray
             
-            for json in jsonArray{
+            //var home: NSManagedObject?
+            for json in jsonArray {
                 let homeData = json as! [String: AnyObject]
                 
-                //Location
-                guard let city = homeData["city"] else{
+                // Location
+                guard let city = homeData["city"] else {
                     return
                 }
                 
-                //Price
-                guard let price = homeData["price"] else{
+                // Price
+                guard let price = homeData["price"] else {
                     return
                 }
                 
-                //Bed
-                guard let bed = homeData["bed"] else{
+                // Bed
+                guard let bed = homeData["bed"] else {
                     return
                 }
                 
-                //Bath
-                guard let bath = homeData["bath"] else{
+                // Bath
+                guard let bath = homeData["bath"] else {
                     return
                 }
                 
-                //sqft
-                guard let sqft = homeData["sqft"] else{
+                // Sqft
+                guard let sqft = homeData["sqft"] else {
                     return
                 }
                 
-                //Picture
+                // Picture
                 var image: UIImage?
-                if let currentImage = homeData["image"]{
+                if let currentImage = homeData["image"] {
                     let imageName = currentImage as? String
                     image = UIImage(named: imageName!)
                 }
                 
-                //Home type
-                guard let homeCategory = homeData["category"] else{
+                // Home type
+                guard let homeCategory = homeData["category"] else {
                     return
                 }
                 let homeType = (homeCategory as! NSDictionary)["homeType"] as? String
                 
-                //Home Status
-                guard let homeStatus = homeData["homeStatus"] else{
+                // Home status
+                guard let homeStatus = homeData["status"] else {
                     return
                 }
                 let isForSale = (homeStatus as! NSDictionary)["isForSale"] as? Bool
                 
-                //Home object initialization
-                let home = homeType?.caseInsensitiveCompare("condo") == .orderedSame ? Condo(context: moc) : SingleFamily(context: moc)
                 
+                
+                // Home object initialization
+                let home = homeType?.caseInsensitiveCompare("condo") == .orderedSame ? Condo(context: moc) : SingleFamily(context: moc)
                 home.price = price as! Double
                 home.bed = bed.int16Value
                 home.bath = bath.int16Value
                 home.sqft = sqft.int16Value
-                home.image = NSData.init(data: UIImageJPEGRepresentation(image!, 1.0)!)
+                home.image = NSData.init(data: UIImageJPEGRepresentation(image!, 1)!)
                 home.homeType = homeType
                 home.city = city as? String
                 home.isForSale = isForSale!
                 
-                if let unitsPerBuilding = homeData["unitsPerBuilding"]{
+                if let unitsPerBuilding = homeData["unitsPerBuilding"] {
                     (home as! Condo).unitsPerBuilding = unitsPerBuilding.int16Value
                 }
-                if let lotSize = homeData["lotSize"]{
+                
+                if let lotSize = homeData["lotSize"] {
                     (home as! SingleFamily).lotSize = lotSize.int16Value
                 }
                 
-                //Sale History
-                if let saleHistories = homeData["saleHistory"]{
+                // Sale history
+                if let saleHistories = homeData["saleHistory"] {
                     let saleHistoryData = home.saleHistory?.mutableCopy() as! NSMutableSet
-                    
-                    for saleDetail in saleHistories as! NSArray{
-                        
+
+                    for saleDetail in saleHistories as! NSArray {
                         let saleData = saleDetail as! [String: AnyObject]
                         
                         let saleHistory = SaleHistory(context: moc)
                         saleHistory.soldPrice = saleData["soldPrice"] as! Double
                         
-                        let soldDateStr = saleData["soldData"] as! String
+                        let soldDateStr = saleData["soldDate"] as! String
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy-MM-dd"
-                        
                         let soldDate = dateFormatter.date(from: soldDateStr)
                         saleHistory.soldDate = soldDate
                         
                         saleHistoryData.add(saleHistory)
                         home.addToSaleHistory(saleHistoryData)
-                        
                     }
+                    
+                    
                 }
             }
-        coreData.saveContext()
+            
+            coreData.saveContext()
         }
-        catch{
+        catch {
             fatalError("Cannot upload sample data")
         }
-    
-    
     }
-    
-    func deleteRecords(){
-        let moc = coreData.persistentContainer.viewContext
-        let homeRequest: NSFetchRequest<Home> = Home.fetchRequest()
-        let saleHistoryRequest: NSFetchRequest<SaleHistory> = SaleHistory.fetchRequest()
-        
-        var deleteRequest: NSBatchDeleteRequest
-        var deleteResults: NSPersistentStoreResult
-        
-        do{
-            deleteRequest = NSBatchDeleteRequest(fetchRequest: homeRequest as! NSFetchRequest<NSFetchRequestResult>)
-            deleteResults = try moc.execute(deleteRequest)
-            
-            deleteRequest = NSBatchDeleteRequest(fetchRequest: saleHistoryRequest as! NSFetchRequest<NSFetchRequestResult>)
-            deleteResults = try moc.execute(deleteRequest)
-        }
-        catch{
-            fatalError("Failed removing existing record")
-        }
-    }
-    
-
 }
-
-
-
-
-
 

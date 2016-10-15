@@ -2,13 +2,12 @@
 //  SaleHistory+CoreDataProperties.swift
 //  Home Report
 //
-//  Created by Sunny on 2016/10/13.
-//  Copyright © 2016年 devhubs. All rights reserved.
+//  Created by Andi Setiyadi on 9/5/16.
+//  Copyright © 2016 devhubs. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
 
 extension SaleHistory {
 

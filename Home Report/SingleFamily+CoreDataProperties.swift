@@ -2,13 +2,12 @@
 //  SingleFamily+CoreDataProperties.swift
 //  Home Report
 //
-//  Created by Sunny on 2016/10/13.
-//  Copyright © 2016年 devhubs. All rights reserved.
+//  Created by Andi Setiyadi on 8/31/16.
+//  Copyright © 2016 devhubs. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
 
 extension SingleFamily {
 
