@@ -160,8 +160,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         saleHistoryData.add(saleHistory)
                         home.addToSaleHistory(saleHistoryData)
                     }
-                    
-                    
                 }
             }
             
