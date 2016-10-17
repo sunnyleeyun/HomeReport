@@ -25,7 +25,7 @@
     <elements>
         <element name="Condo" positionX="-56" positionY="-189" width="128" height="60"/>
         <element name="Home" positionX="-146" positionY="-540" width="128" height="178"/>
-        <element name="SaleHistory" positionX="70" positionY="-540" width="128" height="88"/>
+        <element name="SaleHistory" positionX="70" positionY="-540" width="128" height="90"/>
         <element name="SingleFamily" positionX="-227" positionY="-186" width="128" height="58"/>
     </elements>
 </model>
