@@ -2,14 +2,14 @@
 //  Double+Extension.swift
 //  Home Report
 //
-//  Created by Sunny on 2016/10/18.
-//  Copyright © 2016年 devhubs. All rights reserved.
+//  Created by Andi Setiyadi on 9/7/16.
+//  Copyright © 2016 devhubs. All rights reserved.
 //
 
 import Foundation
 
-extension Double{
-    var currencyFormatter: String{
+extension Double {
+    var currencyFormatter: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         

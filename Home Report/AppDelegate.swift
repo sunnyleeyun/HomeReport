@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         deleteRecords()
         checkDataStore()
         
+        
         let managedObjectContext = coreData.persistentContainer.viewContext
         
         let tabBarController = self.window?.rootViewController as! UITabBarController
         
-        //First tab - Home List
+        // First tab - Home List
         let homeListNavigationController = tabBarController.viewControllers?[0] as! UINavigationController
         let homeListViewController = homeListNavigationController.topViewController as! HomeListViewController
         homeListViewController.managedObjectContext = managedObjectContext

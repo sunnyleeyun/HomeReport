@@ -16,14 +16,16 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    weak var managedObjectContext: NSManagedObjectContext!{
-        didSet{
+    weak var managedObjectContext: NSManagedObjectContext! {
+        didSet {
             return home = Home(context: managedObjectContext)
         }
     }
     lazy var homes = [Home]()
+    var selectedHome: Home?
     var home: Home? = nil
     var isForSale: Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,8 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
         loadData()
     }
     
-    //MARK - Tableview datasource
+    
+    // MARK: Tableview datasource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,25 +58,30 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeListTableViewCell
         
         let currentHome = homes[indexPath.row]
-        cell.confiqureCell(home: currentHome)
+        cell.configureCell(home: currentHome)
         
         return cell
     }
-
     
-    // MARK - private function
-    private func loadData(){
+    // MARK: Private function
+    private func loadData() {
         homes = home!.getHomesByStatus(isForSale: isForSale, moc: managedObjectContext)
         tableView.reloadData()
     }
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueHistory"{
+            let selectedIndexPath = tableView.indexPathForSelectedRow
+            selectedHome = homes[selectedIndexPath!.row]
+            
+            let destinationController = segue.destination as! SaleHistoryViewController
+            destinationController.home = selectedHome
+            destinationController.managedObjectContext = managedObjectContext
+        }
     }
-    */
+
 
 }

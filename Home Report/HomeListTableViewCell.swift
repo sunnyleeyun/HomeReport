@@ -28,8 +28,8 @@ class HomeListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func confiqureCell(home: Home){
+
+    func configureCell(home: Home) {
         cityLabel.text = home.city
         categoryLabel.text = home.homeType
         bedLabel.text = String(home.bed)

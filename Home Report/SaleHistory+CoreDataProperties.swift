@@ -2,7 +2,7 @@
 //  SaleHistory+CoreDataProperties.swift
 //  Home Report
 //
-//  Created by Andi Setiyadi on 9/9/16.
+//  Created by Andi Setiyadi on 9/8/16.
 //  Copyright © 2016 devhubs. All rights reserved.
 //
 
