@@ -17,7 +17,7 @@ extension Home {
 
     @NSManaged public var bath: Int16
     @NSManaged public var bed: Int16
-    @NSManaged public var image: NSData?
+    @NSManaged public var image: Data?
     @NSManaged public var price: Double
     @NSManaged public var sqft: Int16
     @NSManaged public var city: String?

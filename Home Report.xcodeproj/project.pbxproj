@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B2BD4151D78DB8B00D6EB0E /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BD4141D78DB8B00D6EB0E /* HomeListViewController.swift */; };
+		7B2BD4171D78DBA900D6EB0E /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BD4161D78DBA900D6EB0E /* SummaryViewController.swift */; };
+		7B2BD4191D78DBDD00D6EB0E /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BD4181D78DBDD00D6EB0E /* FilterTableViewController.swift */; };
+		7B2BD41B1D78DBF700D6EB0E /* HomeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BD41A1D78DBF700D6EB0E /* HomeListTableViewCell.swift */; };
 		7B2E3F131D76A41500F0577B /* homes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B2E3F121D76A41500F0577B /* homes.json */; };
 		7BA71C781D76987700AB7D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C771D76987700AB7D2D /* AppDelegate.swift */; };
 		7BA71C7A1D76987700AB7D2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C791D76987700AB7D2D /* ViewController.swift */; };
@@ -45,9 +49,14 @@
 		7BBFFCF31D77EE22000BB8C3 /* Home+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFCEB1D77EE22000BB8C3 /* Home+CoreDataProperties.swift */; };
 		7BBFFCF41D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFCEC1D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift */; };
 		7BBFFCF51D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFCED1D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift */; };
+		9BB8AED11DB61AB00057A5D0 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8AED01DB61AB00057A5D0 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B2BD4141D78DB8B00D6EB0E /* HomeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		7B2BD4161D78DBA900D6EB0E /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		7B2BD4181D78DBDD00D6EB0E /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		7B2BD41A1D78DBF700D6EB0E /* HomeListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListTableViewCell.swift; sourceTree = "<group>"; };
 		7B2E3F121D76A41500F0577B /* homes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homes.json; sourceTree = "<group>"; };
 		7BA71C741D76987700AB7D2D /* Home Report.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Home Report.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA71C771D76987700AB7D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 		7BBFFCEB1D77EE22000BB8C3 /* Home+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Home+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7BBFFCEC1D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SaleHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7BBFFCED1D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SaleHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9BB8AED01DB61AB00057A5D0 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B0D5CE11D8106B400F7CA60 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7B2BD41A1D78DBF700D6EB0E /* HomeListTableViewCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		7B2BD4131D78DB5400D6EB0E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B2BD4141D78DB8B00D6EB0E /* HomeListViewController.swift */,
+				7B2BD4161D78DBA900D6EB0E /* SummaryViewController.swift */,
+				7B2BD4181D78DBDD00D6EB0E /* FilterTableViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		7B2E3F0E1D76A18100F0577B /* entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +172,9 @@
 		7BA71C761D76987700AB7D2D /* Home Report */ = {
 			isa = PBXGroup;
 			children = (
+				9BB8AECF1DB61A610057A5D0 /* helper */,
+				7B0D5CE11D8106B400F7CA60 /* view */,
+				7B2BD4131D78DB5400D6EB0E /* controller */,
 				7BBFFCB91D77E317000BB8C3 /* images */,
 				7B2E3F0F1D76A19B00F0577B /* model */,
 				7B2E3F0E1D76A18100F0577B /* entity */,
@@ -187,6 +218,14 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		9BB8AECF1DB61A610057A5D0 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				9BB8AED01DB61AB00057A5D0 /* Double+Extension.swift */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,7 +258,7 @@
 				TargetAttributes = {
 					7BA71C731D76987700AB7D2D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = MW4DYSHR2N;
+						DevelopmentTeam = VJGEDW5SA9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -284,9 +323,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA71C801D76987700AB7D2D /* Home_Report.xcdatamodeld in Sources */,
+				7B2BD4151D78DB8B00D6EB0E /* HomeListViewController.swift in Sources */,
 				7BBFFCF41D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift in Sources */,
 				7BBFFCEE1D77EE22000BB8C3 /* SingleFamily+CoreDataClass.swift in Sources */,
+				9BB8AED11DB61AB00057A5D0 /* Double+Extension.swift in Sources */,
 				7BBFFCF31D77EE22000BB8C3 /* Home+CoreDataProperties.swift in Sources */,
+				7B2BD4171D78DBA900D6EB0E /* SummaryViewController.swift in Sources */,
 				7BA71C7A1D76987700AB7D2D /* ViewController.swift in Sources */,
 				7BBFFCF51D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift in Sources */,
 				7BBFFCEF1D77EE22000BB8C3 /* SingleFamily+CoreDataProperties.swift in Sources */,
@@ -294,6 +336,8 @@
 				7BBFFCF01D77EE22000BB8C3 /* Condo+CoreDataClass.swift in Sources */,
 				7BA71C8D1D7698BB00AB7D2D /* CoreDataStack.swift in Sources */,
 				7BBFFCF21D77EE22000BB8C3 /* Home+CoreDataClass.swift in Sources */,
+				7B2BD4191D78DBDD00D6EB0E /* FilterTableViewController.swift in Sources */,
+				7B2BD41B1D78DBF700D6EB0E /* HomeListTableViewCell.swift in Sources */,
 				7BBFFCF11D77EE22000BB8C3 /* Condo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MW4DYSHR2N;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
 				INFOPLIST_FILE = "Home Report/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devhubs.Home-Report";
@@ -428,7 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MW4DYSHR2N;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
 				INFOPLIST_FILE = "Home Report/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devhubs.Home-Report";
