@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SummaryViewController: UIViewController {
 
+    weak var managedObjectContext: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

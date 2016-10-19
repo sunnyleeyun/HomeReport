@@ -29,13 +29,13 @@ class HomeListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configureCell(home: Home) {
+    internal func configureCell(home: Home) {
         cityLabel.text = home.city
         categoryLabel.text = home.homeType
+        priceLabel.text = home.price.currencyFormatter
         bedLabel.text = String(home.bed)
         bathLabel.text = String(home.bath)
         sqftLabel.text = String(home.sqft)
-        priceLabel.text = home.price.currencyFormatter
         
         let image = UIImage(data: home.image!)
         homeImageView.image = image

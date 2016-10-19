@@ -8,8 +8,30 @@
 
 import UIKit
 
+protocol FilterTableViewControllerDelegate: class {
+    func updateHomeList(filterby: NSPredicate?, sortby: NSSortDescriptor?)
+}
+
 class FilterTableViewController: UITableViewController {
 
+    // MARK: Outlets
+    
+    // SORT BY
+    @IBOutlet weak var sortByLocationCell: UITableViewCell!
+    @IBOutlet weak var sortByPriceLowHighCell: UITableViewCell!
+    @IBOutlet weak var sortByPriceHighLowCell: UITableViewCell!
+    
+    // FILTER by home type
+    @IBOutlet weak var filterByCondoCell: UITableViewCell!
+    @IBOutlet weak var filterBySingleFamilyCell: UITableViewCell!
+    
+    
+    // MARK: Properties
+    var sortDescriptor: NSSortDescriptor?
+    var searchPredicate: NSPredicate?
+    var delegate: FilterTableViewControllerDelegate!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,14 +51,44 @@ class FilterTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return section == 0 ? 3 : 2
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath)!
+        
+        switch selectedCell {
+        case sortByLocationCell:
+            setSortDescriptor(sortby: "city", isAscending: true)
+        case sortByPriceLowHighCell:
+            setSortDescriptor(sortby: "price", isAscending: true)
+        case sortByPriceHighLowCell:
+            setSortDescriptor(sortby: "price", isAscending: false)
+        case filterByCondoCell, filterBySingleFamilyCell:
+            setFilterSearchPredicate(filterby: selectedCell.textLabel!.text!)
+        default:
+            print("No cell is selected")
+        }
+        
+        selectedCell.accessoryType = .checkmark
+        delegate.updateHomeList(filterby: searchPredicate, sortby: sortDescriptor)
+    }
+    
+    // MARK: Private function
+    
+    func setSortDescriptor(sortby: String, isAscending: Bool) {
+        sortDescriptor = NSSortDescriptor(key: sortby, ascending: isAscending)
+    }
+    
+    func setFilterSearchPredicate(filterby: String) {
+        searchPredicate = NSPredicate(format: "homeType = %@", filterby)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

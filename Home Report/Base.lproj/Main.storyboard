@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -169,7 +169,7 @@
                     <navigationItem key="navigationItem" title="Home List" id="JgE-Ld-NVE">
                         <barButtonItem key="rightBarButtonItem" title="Filter" id="BOl-I9-jCO">
                             <connections>
-                                <segue destination="wlt-cG-6B6" kind="show" id="DsF-wg-gQ9"/>
+                                <segue destination="wlt-cG-6B6" kind="show" identifier="segueToFilter" id="DsF-wg-gQ9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -198,21 +198,21 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="cLS-oe-TOJ" detailTextLabel="RBm-26-wDR" rowHeight="15" style="IBUITableViewCellStyleValue1" id="qe8-Uw-187" customClass="SaleHistoryTableViewCell" customModule="Home_Report" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="335" height="15"/>
+                                        <rect key="frame" x="0.0" y="92" width="1000" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qe8-Uw-187" id="XRE-ml-mBx">
-                                            <frame key="frameInset" width="335" height="14"/>
+                                            <frame key="frameInset" width="1000" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="soldDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cLS-oe-TOJ">
-                                                    <frame key="frameInset" minX="15" minY="-3" width="69" height="21"/>
+                                                    <frame key="frameInset" minX="164" minY="-3" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="soldPrice" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RBm-26-wDR">
-                                                    <frame key="frameInset" minX="90" minY="-3" width="230" height="21"/>
+                                                    <frame key="frameInset" minX="239" minY="-3" width="597" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -221,14 +221,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="soldDateLabel" destination="cLS-oe-TOJ" id="odK-WB-CId"/>
-                                            <outlet property="soldPriceLabel" destination="RBm-26-wDR" id="Pmm-Rt-dwY"/>
+                                            <outlet property="soldDateLabel" destination="cLS-oe-TOJ" id="ght-Gk-yQ1"/>
+                                            <outlet property="soldPriceLabel" destination="RBm-26-wDR" id="wUg-Hf-rbR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="HQm-sS-ENG" id="2Pz-Vm-97I"/>
-                                    <outlet property="delegate" destination="HQm-sS-ENG" id="Wre-YD-2In"/>
+                                    <outlet property="dataSource" destination="HQm-sS-ENG" id="8CW-rh-dfI"/>
+                                    <outlet property="delegate" destination="HQm-sS-ENG" id="rj2-KL-4S0"/>
                                 </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="165000.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4Rk-ul-mvP"/>
@@ -248,8 +248,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sale History" id="2O8-cQ-ApF"/>
                     <connections>
-                        <outlet property="imageView" destination="4Rk-ul-mvP" id="D22-d0-Wf7"/>
-                        <outlet property="tableView" destination="NpY-sh-vTM" id="99f-68-Kwd"/>
+                        <outlet property="imageView" destination="4Rk-ul-mvP" id="0lz-ea-IoF"/>
+                        <outlet property="tableView" destination="NpY-sh-vTM" id="xoM-jK-VkF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lv5-U6-m2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,6 +372,13 @@
                             <outlet property="delegate" destination="wlt-cG-6B6" id="77f-9L-QDl"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="filterByCondoCell" destination="yfH-6H-PFZ" id="vGA-WR-lFk"/>
+                        <outlet property="filterBySingleFamilyCell" destination="1jH-vh-Bgw" id="tWi-b1-Qfv"/>
+                        <outlet property="sortByLocationCell" destination="K6D-Ka-k3u" id="s0t-es-3ey"/>
+                        <outlet property="sortByPriceHighLowCell" destination="SGL-Dt-W0g" id="mW0-j0-NZ6"/>
+                        <outlet property="sortByPriceLowHighCell" destination="Th8-8Q-h15" id="hZM-HI-Wcg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jv-5U-gJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

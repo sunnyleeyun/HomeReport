@@ -1,8 +1,8 @@
 //
-//  Double+Extension.swift
+//  Formatter.swift
 //  Home Report
 //
-//  Created by Andi Setiyadi on 9/7/16.
+//  Created by Andi Setiyadi on 9/1/16.
 //  Copyright © 2016 devhubs. All rights reserved.
 //
 

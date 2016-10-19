@@ -2,18 +2,17 @@
 //  Date+Extension.swift
 //  Home Report
 //
-//  Created by Sunny on 2016/10/18.
-//  Copyright © 2016年 devhubs. All rights reserved.
+//  Created by Andi Setiyadi on 9/8/16.
+//  Copyright © 2016 devhubs. All rights reserved.
 //
 
 import Foundation
 
 extension Date {
-    var toString: String{
+    var toString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         
         return dateFormatter.string(from: self)
     }
-    
 }

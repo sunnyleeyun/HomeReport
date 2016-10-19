@@ -2,33 +2,39 @@
 //  SaleHistoryViewController.swift
 //  Home Report
 //
-//  Created by Sunny on 2016/10/18.
-//  Copyright © 2016年 devhubs. All rights reserved.
+//  Created by Andi Setiyadi on 9/1/16.
+//  Copyright © 2016 devhubs. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
 class SaleHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    // MARK - Properties
+
+    // MARK: Property
     lazy var soldHistory = [SaleHistory]()
     var home: Home?
     weak var managedObjectContext: NSManagedObjectContext!
     
-    // MARK - Outlets
+    // MARK - Outlet
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    // MARK - Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         loadSoldHistory()
         
-        if let homeImage = home?.image{
+        if let homeImage = home!.image {
             let image = UIImage(data: homeImage)
             imageView.image = image
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 4
         }
+        
         tableView.tableFooterView = UIView()
     }
 
@@ -37,7 +43,9 @@ class SaleHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK - Tableview datasource
+
+    // MARK: Tableview datasource
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -48,21 +56,22 @@ class SaleHistoryViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! SaleHistoryTableViewCell
+        
         let saleHistory = soldHistory[indexPath.row]
         cell.configureCell(saleHistory: saleHistory)
         
         return cell
     }
     
-    // MARK - Private
-    private func loadSoldHistory() {
+    
+    // MARK: Private function
+    
+    private func loadSoldHistory(){
         let saleHistory = SaleHistory(context: managedObjectContext)
         soldHistory = saleHistory.getSoldHistory(home: home!, moc: managedObjectContext)
         
         tableView.reloadData()
     }
-    
-    
     /*
     // MARK: - Navigation
 

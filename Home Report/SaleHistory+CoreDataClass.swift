@@ -11,17 +11,17 @@ import CoreData
 
 
 public class SaleHistory: NSManagedObject {
-    
-    func getSoldHistory(home: Home, moc: NSManagedObjectContext) -> [SaleHistory]{
+
+    func getSoldHistory(home: Home, moc: NSManagedObjectContext) -> [SaleHistory] {
         let soldHistoryRequest: NSFetchRequest<SaleHistory> = SaleHistory.fetchRequest()
         soldHistoryRequest.predicate = NSPredicate(format: "home = %@", home)
-        do{
+        
+        do {
             let soldHistory = try moc.fetch(soldHistoryRequest)
             return soldHistory
         }
-        catch{
+        catch {
             fatalError("Error in getting sold history")
         }
     }
-
 }
