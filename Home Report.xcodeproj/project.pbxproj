@@ -53,6 +53,7 @@
 		7BBFFCF41D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFCEC1D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift */; };
 		7BBFFCF51D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFCED1D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift */; };
 		9B84D3C01DB7715D002B6783 /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84D3BF1DB7715D002B6783 /* SummaryTableViewController.swift */; };
+		9B84D3C21DB7A8C0002B6783 /* HomeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84D3C11DB7A8C0002B6783 /* HomeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		7BBFFCEC1D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SaleHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7BBFFCED1D77EE22000BB8C3 /* SaleHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SaleHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B84D3BF1DB7715D002B6783 /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewController.swift; sourceTree = "<group>"; };
+		9B84D3C11DB7A8C0002B6783 /* HomeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			children = (
 				7B4285391D83BE71001364F2 /* Date+Extension.swift */,
 				7B81B40F1D7900EE0001654B /* Double+extension.swift */,
+				9B84D3C11DB7A8C0002B6783 /* HomeType.swift */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				7B2BD4151D78DB8B00D6EB0E /* HomeListViewController.swift in Sources */,
 				7BBFFCF41D77EE22000BB8C3 /* SaleHistory+CoreDataClass.swift in Sources */,
 				7BBFFCEE1D77EE22000BB8C3 /* SingleFamily+CoreDataClass.swift in Sources */,
+				9B84D3C21DB7A8C0002B6783 /* HomeType.swift in Sources */,
 				7BBFFCF31D77EE22000BB8C3 /* Home+CoreDataProperties.swift in Sources */,
 				7B42853A1D83BE71001364F2 /* Date+Extension.swift in Sources */,
 				7BA71C7A1D76987700AB7D2D /* ViewController.swift in Sources */,

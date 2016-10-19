@@ -123,7 +123,13 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
             request!.sortDescriptors = sortDescriptor
         }
         
-        homes = home!.getHomesByStatus(request: request!, moc: managedObjectContext)
+        //homes = home!.getHomesByStatus(request: request!, moc: managedObjectContext)
+        
+        home?.getHomesByStatus(request: request!, moc: managedObjectContext, completionHandler: { [weak self] (homesByStatus) in
+            self?.homes = homesByStatus
+            self?.tableView.reloadData()
+        })
+        
         tableView.reloadData()
     }
 }
