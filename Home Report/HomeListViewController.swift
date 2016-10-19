@@ -30,13 +30,19 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
     var isForSale: Bool = true
     var sortDescriptor = [NSSortDescriptor]()
     var searchPredicate: NSPredicate?
-
+    var request: NSFetchRequest<Home>?
     
     // MARK: Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        request = Home.fetchRequest()
+        
         loadData()
     }
 
@@ -100,7 +106,24 @@ class HomeListViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Private function
     
     private func loadData() {
-        homes = home!.getHomesByStatus(isForSale: isForSale, moc: managedObjectContext)
+        var predicates = [NSPredicate]()
+        
+        let statusPredicate = NSPredicate(format: "isForSale = %@", isForSale as CVarArg)
+        predicates.append(statusPredicate)
+        
+        if let additionalPredicate = searchPredicate {
+            predicates.append(additionalPredicate)
+        }
+        
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: predicates)
+        
+        request!.predicate = predicate
+        
+        if sortDescriptor.count > 0 {
+            request!.sortDescriptors = sortDescriptor
+        }
+        
+        homes = home!.getHomesByStatus(request: request!, moc: managedObjectContext)
         tableView.reloadData()
     }
 }
