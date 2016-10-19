@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //deleteRecords()
+        checkDataStore()
+        
         let managedObjectContext = coreData.persistentContainer.viewContext
         
         let tabBarController = self.window?.rootViewController as! UITabBarController
@@ -27,12 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         homeListViewController.managedObjectContext = managedObjectContext
         
         // Second Tab - Summary View
-        let summaryNavigationController = tabBarController.viewControllers?[1] as! UINavigationController
-        let summaryViewController = summaryNavigationController.topViewController as! SummaryViewController
-        summaryViewController.managedObjectContext = managedObjectContext
         
-        //deleteRecords()
-        checkDataStore()
+
         
          return true
     }
